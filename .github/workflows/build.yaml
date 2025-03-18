@@ -16,7 +16,7 @@ jobs:
           java-version: 11
       - id: get-project
         name: Get project name
-        run: echo "::set-output name=PROJECT::$(cat project-to-build)"
+        run: echo "Selected project: ${{ steps.set_project.outputs.PROJECT }}"
       - name: Clone project
         run: git clone --depth=1 ${{ steps.get-project.outputs.PROJECT }} project
       - name: Build the app
